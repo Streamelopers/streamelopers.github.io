@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% assign author = page.pagination.author_data %}
+<!--
+  Now you can use the author variable anyhow.
+  It has all the data as defined inside _data/authors.yml for the current author.
+-->
+
+  <head>
+    <!-- See how we can use values inside the author variable. -->
+    <meta name="description" content={{ author.bio }}>
+    <!-- other stuff -->
+  </head>
+
+  <body>
+    <h1>{{ author.name }}</h1>
+    <p>{{ author.bio }}</p>
+
+    {% assign links = author.socials %}
+    <a href="{{ link.twitter }}">Twitter</a>
+    <a href="{{ link.github }}">GitHub</a>
+
+    <!--
+      The main logic for rendering an author's posts resides here.
+      The plugin exposes a paginator object that you can use to loop through the post.
+      It handles all the pagination logic for you.
+    -->
+    {% for post in paginator.posts %}
+      {% include postbox.html %}
+    {% endfor %}
+
+  </body>
+
+</html>

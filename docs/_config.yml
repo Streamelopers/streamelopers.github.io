@@ -37,7 +37,28 @@ linkedin_username:  streamelopers
 theme: cayman
 plugins:
   - jekyll-feed
+  - jekyll-paginate-v2
+  - jekyll-auto-author
+pagination:
+  enabled: true
+  per_page: 9
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  sort_field: 'date'
+  sort_reverse: true
 
+autopages:
+  authors:
+    enabled: true # adding false here stops the auto-generation
+    data: '_data/authors.yml' # Data file with the author details
+    layouts: 
+      - 'author.html' # We'll define this layout later, will be used for each author
+    title: 'Posts by :author'
+    permalink: '/author/:author/'
+    slugify:
+      mode: 'default' # choose from [raw, default, pretty, ascii or latin]
+      cased: true # if true, the uppercase letters in slug will be converted to lowercase ones.
+  
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

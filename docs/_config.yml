@@ -34,7 +34,7 @@ instagram_username:  streamelopers
 linkedin_username:  streamelopers
 
 # Build settings
-theme: minima
+theme: cayman
 plugins:
   - jekyll-feed
 
